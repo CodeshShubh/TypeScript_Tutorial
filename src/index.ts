@@ -144,6 +144,62 @@ const teacher2:Myobj2 = { // this is inherit interface using interface
 
 
 
+//<-------------------------------------------------------------------------------------------------------------------------------------------->
+// normal function declaration
+const Render = (a:number,b:number):number => { // const Render = (varibale_datatype , varible_datatype):return_value_datatype =>{ return a*b}
+   return a*b
+}
+console.log(Render(4,5))
+
+
+
+// using type
+type func = (a:number , b:number)=>string;
+
+const Render2:func = (a,b) => {
+  return String(a*b)
+}
+
+
+
+// make optional
+type func2 = (a:number , b:number , c?:number)=>string;
+
+const Render3:func2 = (a,b) => {
+  return String(a*b)
+}
+
+
+// type gaurd 
+// -> if user use c but not pass value pass value in function so l will show undefined so we use typeGaurd ->
+
+type func3 = (a:number, b:number, c?:number)=>number;
+
+const Render4:func3 =(n,m,l)=>{
+    if(typeof l === 'undefined') return n*m; // by using this error will remove
+    return n*m*l; // withour type gaurd here l is showing error undefined
+}
+Render4(25, 21)
+
+// -> OR we can  give l default value
+
+type func4 = (a:number, b:number, c?:number)=>number
+
+const Render5:func4 = (a, b, c=20) =>{ // -> here we give c default value
+   return a*b
+}
+Render5(10, 20)
+
+
+// -> OR we can give typer sapartly
+
+const Render6 = (a:number , b:number, c?:number)=>{
+    return a*b
+}
+Render6(20, 23)
+
+
+
 
 
 

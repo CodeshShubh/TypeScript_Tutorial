@@ -48,3 +48,30 @@ const teacher2 = {
     subject: 'Math',
     certificate: true
 };
+//<-------------------------------------------------------------------------------------------------------------------------------------------->
+// normal function declaration
+const Render = (a, b) => {
+    return a * b;
+};
+console.log(Render(4, 5));
+const Render2 = (a, b) => {
+    return String(a * b);
+};
+const Render3 = (a, b) => {
+    return String(a * b);
+};
+const Render4 = (n, m, l) => {
+    if (typeof l === 'undefined')
+        return n * m; // by using this error will remove
+    return n * m * l; // withour type gaurd here l is showing error undefined
+};
+Render4(25, 21);
+const Render5 = (a, b, c = 20) => {
+    return a * b;
+};
+Render5(10, 20);
+// -> OR we can give typer sapartly
+const Render6 = (a, b, c) => {
+    return a * b;
+};
+Render6(20, 23);
