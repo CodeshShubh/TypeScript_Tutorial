@@ -75,3 +75,22 @@ const Render6 = (a, b, c) => {
     return a * b;
 };
 Render6(20, 23);
+//<-------------------------------------------------------------------------------------------------------------------------------------------->
+// ->Rest Operater
+// so basically if we receive multiple value then we can use rest operater which will takes as a array
+const func = (...m) => {
+    return m;
+};
+func(1, 2, 3, 4, 5, 6, 7, 8, 9, 34);
+const productOne = {
+    productName: 'mackbook',
+    productPrice: 4000,
+    description: 'this is mackbook',
+    stock: 4,
+    id: 'Unique_id_number'
+};
+const func1 = (productOne) => {
+    //productOne.id = 'other_id' -> so here this will show error because we can not change readonly value
+    console.log(productOne);
+};
+func1(productOne);
