@@ -94,3 +94,45 @@ const func1 = (productOne) => {
     console.log(productOne);
 };
 func1(productOne);
+const mode = 'dark'; //-> so here we can only acces ligh and dark in mode variable
+// ->type never
+//-> if we throw error in fuction then it will return never or if we return error it will show error
+const fun = () => {
+    return Error();
+};
+const fun2 = () => {
+    throw new Error();
+};
+//<-------------------------------------------------------------------------------------------------------------------------------------------->
+// -> Classes in type Script
+class Products {
+    constructor(productName, stock, mrp, sellingPrice) {
+        this.productName = productName;
+        this.stock = stock;
+        this.mrp = mrp;
+        this.sellingPrice = sellingPrice;
+    }
+    // for getter
+    get getmrp() {
+        return this.mrp;
+    }
+    // for setter -> in this will not return anything
+    set changeMRP(value) {
+        this.mrp = value;
+    }
+}
+class products2 extends Products {
+    constructor(description, stock, productName, mrp, sellingPrice) {
+        super(productName, stock, mrp, sellingPrice);
+        this.description = description;
+    }
+    get ChangesellingPrice() {
+        return this.sellingPrice;
+    }
+}
+const shubh = new products2("This is mackbook", 4, 'Mackbook', 400000, 450000);
+console.log(shubh.productName);
+console.log(shubh.stock);
+console.log(shubh.description);
+console.log(shubh.getmrp);
+console.log(shubh.ChangesellingPrice);

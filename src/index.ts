@@ -216,7 +216,7 @@ Render6(20, 23)
 
 
  //<-------------------------------------------------------------------------------------------------------------------------------------------->
- // -> Objects in functions
+ // -> Objects in functions and readonly
 
  interface Product {
     productName:string,
@@ -244,3 +244,63 @@ type myfunc = (product:Product)=>void
 
 
 
+ //<-------------------------------------------------------------------------------------------------------------------------------------------->
+//   -> type never
+//  -> theamMode
+
+type theamMode = 'light' |'dark'
+
+const mode:theamMode = 'dark' //-> so here we can only acces ligh and dark in mode variable
+
+
+// ->type never
+//-> if we throw error in fuction then it will return never or if we return error it will show error
+
+const fun = ()=>{  // -> this will return error but
+    return Error()
+}
+
+const fun2 = ():never=>{  // -> this will return never so we can already define it
+    throw new Error()
+}
+ 
+
+
+
+ //<-------------------------------------------------------------------------------------------------------------------------------------------->
+// -> Classes in type Script
+
+class Products{
+    constructor(public productName:string, public stock:number,  private mrp:number , protected readonly sellingPrice:number){}
+    // for getter
+       get getmrp():number{
+        return this.mrp
+    }
+    // for setter -> in this will not return anything
+    set changeMRP(value:number){
+        this.mrp=value
+    }
+
+}
+
+class products2 extends Products{
+         description:String
+
+    constructor(description:string, stock:number, productName:string, mrp:number, sellingPrice:number){
+           super(productName, stock, mrp ,sellingPrice)
+           this.description=description
+    }
+    get ChangesellingPrice():number{
+        return this.sellingPrice
+    }
+
+    
+}
+
+const shubh = new products2("This is mackbook", 4, 'Mackbook', 400000, 450000)
+
+console.log(shubh.productName)
+console.log(shubh.stock)
+console.log(shubh.description)
+console.log(shubh.getmrp)
+console.log(shubh.ChangesellingPrice)
