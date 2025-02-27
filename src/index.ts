@@ -304,3 +304,26 @@ console.log(shubh.stock)
 console.log(shubh.description)
 console.log(shubh.getmrp)
 console.log(shubh.ChangesellingPrice)
+
+
+
+// interface using class ->
+
+interface student{
+     name:string,
+     age:number,
+     email:string,
+}
+
+interface GiveId {
+    getId : ()=>string;
+}
+
+class Students implements student, GiveId {  // here we use implements insted of extends to include type 
+     constructor(public name:string, public age:number , public email:string) {}
+     getId(): string {
+        return `${this.name}-${this.age}`;
+    }
+}
+
+const student = new Students('shubh', 43 , 'a@gmail.com')
